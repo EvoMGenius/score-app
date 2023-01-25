@@ -3,7 +3,7 @@ package com.evo.apatrios.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -12,6 +12,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class CustomUser {
 
     @Id
@@ -21,17 +22,19 @@ public class CustomUser {
 
     private String fullName;
 
+    private String faculty;
+
+    private String studyGroup;
+
     private String email;
 
     private Long score;
 
     private String password;
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role",
-               joinColumns = @JoinColumn(name = "user_id"),
-               inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<CustomRole> roles;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
-
+    @OneToMany
+    private List<Award> awards;
 }
