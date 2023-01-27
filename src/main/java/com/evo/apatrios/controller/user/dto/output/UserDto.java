@@ -1,5 +1,6 @@
 package com.evo.apatrios.controller.user.dto.output;
 
+import com.evo.apatrios.controller.award.dto.output.AwardDto;
 import com.evo.apatrios.model.Award;
 import lombok.Data;
 
@@ -18,5 +19,5 @@ public class UserDto {
 
     private Long score;
 
-    private List<Award> awards;
+    private List<AwardDto> awards;
 }

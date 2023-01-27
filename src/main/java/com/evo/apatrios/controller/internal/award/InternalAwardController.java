@@ -15,7 +15,7 @@ import static com.evo.apatrios.controller.award.mapper.AwardMapper.AWARD_MAPPER;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("internal/award")
+@RequestMapping("api/v1/internal/award")
 public class InternalAwardController {
 
     private final AwardService awardService;

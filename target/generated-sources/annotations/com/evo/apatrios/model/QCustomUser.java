@@ -20,7 +20,7 @@ public class QCustomUser extends EntityPathBase<CustomUser> {
 
     public static final QCustomUser customUser = new QCustomUser("customUser");
 
-    public final ListPath<Award, QAward> awards = this.<Award, QAward>createList("awards", Award.class, QAward.class, PathInits.DIRECT2);
+    public final ListPath<CustomUserBoughtAward, QCustomUserBoughtAward> awards = this.<CustomUserBoughtAward, QCustomUserBoughtAward>createList("awards", CustomUserBoughtAward.class, QCustomUserBoughtAward.class, PathInits.DIRECT2);
 
     public final StringPath email = createString("email");
 

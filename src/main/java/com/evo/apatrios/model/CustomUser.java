@@ -35,6 +35,7 @@ public class CustomUser {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany
-    private List<Award> awards;
+    @OneToMany(fetch = FetchType.EAGER,
+               cascade = CascadeType.ALL)
+    private List<CustomUserBoughtAward> awards;
 }

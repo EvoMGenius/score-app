@@ -13,7 +13,7 @@ import static com.evo.apatrios.controller.user.mapper.UserMapper.USER_MAPPER;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("internal/user")
+@RequestMapping("api/v1/internal/user")
 public class InternalUserController {
 
     private final CustomUserService userService;

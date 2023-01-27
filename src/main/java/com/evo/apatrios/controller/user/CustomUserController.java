@@ -34,7 +34,7 @@ public class CustomUserController {
 
     @GetMapping("list")
     public List<UserListDto> getList(SearchUserDto dto,
-                                     @SortDefault(value = {"score"}, direction = Sort.Direction.DESC)
+                                     @SortDefault(value = {"score"}, direction = Sort.Direction.ASC)
                                      Sort sort) {
         SearchUserArgument argument = USER_MAPPER.toSearchArgument(dto);
         return userService.getList(argument, sort).stream()

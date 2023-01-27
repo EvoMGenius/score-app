@@ -1,5 +1,7 @@
-package com.evo.apatrios.model;
+package com.evo.apatrios.action.buyaward;
 
+import com.evo.apatrios.model.Award;
+import com.evo.apatrios.model.CustomUser;
 import lombok.Builder;
 import lombok.Data;
 

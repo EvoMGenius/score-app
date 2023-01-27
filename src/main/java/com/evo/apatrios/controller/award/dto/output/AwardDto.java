@@ -8,4 +8,5 @@ public class AwardDto {
     private String name;
 
     private Long cost;
+
 }
