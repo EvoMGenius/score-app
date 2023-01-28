@@ -12,7 +12,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-01-26T05:36:37+1000",
+    date = "2023-01-28T16:44:32+1000",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 1.8.0_345 (Temurin)"
 )
 public class AwardMapperImpl implements AwardMapper {
@@ -39,6 +39,7 @@ public class AwardMapperImpl implements AwardMapper {
 
         AwardDto awardDto = new AwardDto();
 
+        awardDto.setId( award.getId() );
         awardDto.setName( award.getName() );
         awardDto.setCost( award.getCost() );
 

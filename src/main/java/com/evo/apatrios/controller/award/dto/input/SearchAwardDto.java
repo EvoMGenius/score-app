@@ -8,4 +8,5 @@ public class SearchAwardDto {
     private String name;
 
     private Long cost;
+
 }

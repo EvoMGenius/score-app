@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 import static com.evo.apatrios.controller.award.mapper.AwardMapper.AWARD_MAPPER;
 
-@RequestMapping("award")
+@RequestMapping("api/v1/awards")
 @RestController
 @RequiredArgsConstructor
 public class AwardController {
@@ -25,8 +25,8 @@ public class AwardController {
 
     @GetMapping("list")
     public List<AwardDto> getList(SearchAwardDto dto,
-                                  @SortDefault(value = {"score"}, direction = Sort.Direction.DESC)
-                                      Sort sort) {
+                                  @SortDefault(value = {"cost"}, direction = Sort.Direction.DESC)
+                                  Sort sort) {
         SearchAwardArgument argument = AWARD_MAPPER.toSearchArgument(dto);
         return awardService.getList(argument, sort).stream()
                            .map(AWARD_MAPPER::toDto)

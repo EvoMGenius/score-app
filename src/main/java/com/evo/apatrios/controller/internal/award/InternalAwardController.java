@@ -7,6 +7,7 @@ import com.evo.apatrios.service.award.AwardService;
 import com.evo.apatrios.service.award.argument.CreateAwardArgument;
 import com.evo.apatrios.service.award.argument.UpdateAwardArgument;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -15,7 +16,7 @@ import static com.evo.apatrios.controller.award.mapper.AwardMapper.AWARD_MAPPER;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("internal/award")
+@RequestMapping("api/v1/internal/award")
 public class InternalAwardController {
 
     private final AwardService awardService;

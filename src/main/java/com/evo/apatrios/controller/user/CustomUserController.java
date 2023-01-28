@@ -34,7 +34,7 @@ public class CustomUserController {
 
     @GetMapping("list")
     public List<UserListDto> getList(SearchUserDto dto,
-                                     @SortDefault(value = {"score"}, direction = Sort.Direction.DESC)
+                                     @SortDefault(value = {"score"}, direction = Sort.Direction.ASC)
                                      Sort sort) {
         SearchUserArgument argument = USER_MAPPER.toSearchArgument(dto);
         return userService.getList(argument, sort).stream()
@@ -43,15 +43,19 @@ public class CustomUserController {
     }
 
     @PostMapping("{awardId}/buy")
-    public UserBuyAwardDto buyAward(@PathVariable UUID awardId) {
+    public UserBuyAwardDto buyAward(@PathVariable UUID awardId) throws Exception {
         UUID userId = authService.getAuthorizedUserId();
         UserByAwardActionArgument argument = USER_MAPPER.toBuyAwardActionArgument(userId, awardId);
 
         return USER_MAPPER.toUserBuyAwardDto(buyAwardAction.buyAward(argument));
     }
 
+    @GetMapping("{id}/user")
+    public UserDto getById(@PathVariable UUID id){
+        return USER_MAPPER.toDto(userService.getExisting(id));
+    }
     @GetMapping("me")
-    public UserDto me() {
+    public UserDto me() throws Exception {
         UUID userId = authService.getAuthorizedUserId();
         return USER_MAPPER.toDto(userService.getExisting(userId));
     }

@@ -1,12 +1,14 @@
 package com.evo.apatrios.controller.user.dto.output;
 
-import com.evo.apatrios.model.Award;
 import lombok.Data;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 public class UserDto {
+
+    private UUID id;
 
     private String fullName;
 
@@ -18,5 +20,5 @@ public class UserDto {
 
     private Long score;
 
-    private List<Award> awards;
+    private List<UserBoughtAwardDto> awards;
 }

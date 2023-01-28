@@ -1,10 +1,12 @@
 package com.evo.apatrios.model;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Getter
@@ -13,7 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class CustomUser {
+public class CustomUser implements UserDetails {
 
     @Id
     @GeneratedValue
@@ -35,6 +37,43 @@ public class CustomUser {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany
-    private List<Award> awards;
+    @OneToMany(fetch = FetchType.EAGER,
+               cascade = CascadeType.ALL)
+    private List<CustomUserBoughtAward> awards;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singletonList(new SimpleGrantedAuthority(role.name()));
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    //    По хорошему создать для каждого булеана поле и возвращать его.
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

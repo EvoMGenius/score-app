@@ -1,15 +1,17 @@
 package com.evo.apatrios.controller.user.mapper;
 
+import com.evo.apatrios.action.buyaward.UserBuyAward;
 import com.evo.apatrios.action.buyaward.UserByAwardActionArgument;
 import com.evo.apatrios.controller.award.dto.output.AwardDto;
 import com.evo.apatrios.controller.internal.user.dto.UpdateUserDto;
 import com.evo.apatrios.controller.user.dto.input.SearchUserDto;
+import com.evo.apatrios.controller.user.dto.output.UserBoughtAwardDto;
 import com.evo.apatrios.controller.user.dto.output.UserBuyAwardDto;
 import com.evo.apatrios.controller.user.dto.output.UserDto;
 import com.evo.apatrios.controller.user.dto.output.UserListDto;
 import com.evo.apatrios.model.Award;
 import com.evo.apatrios.model.CustomUser;
-import com.evo.apatrios.model.UserBuyAward;
+import com.evo.apatrios.model.CustomUserBoughtAward;
 import com.evo.apatrios.service.user.argument.SearchUserArgument;
 import com.evo.apatrios.service.user.argument.UpdateUserArgument;
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-01-26T05:36:38+1000",
+    date = "2023-01-28T16:44:32+1000",
     comments = "version: 1.5.2.Final, compiler: javac, environment: Java 1.8.0_345 (Temurin)"
 )
 public class UserMapperImpl implements UserMapper {
@@ -48,6 +50,7 @@ public class UserMapperImpl implements UserMapper {
 
         UserListDto userListDto = new UserListDto();
 
+        userListDto.setId( customUser.getId() );
         userListDto.setFullName( customUser.getFullName() );
         userListDto.setFaculty( customUser.getFaculty() );
         userListDto.setStudyGroup( customUser.getStudyGroup() );
@@ -94,15 +97,13 @@ public class UserMapperImpl implements UserMapper {
 
         UserDto userDto = new UserDto();
 
+        userDto.setId( user.getId() );
         userDto.setFullName( user.getFullName() );
         userDto.setFaculty( user.getFaculty() );
         userDto.setStudyGroup( user.getStudyGroup() );
         userDto.setEmail( user.getEmail() );
         userDto.setScore( user.getScore() );
-        List<Award> list = user.getAwards();
-        if ( list != null ) {
-            userDto.setAwards( new ArrayList<Award>( list ) );
-        }
+        userDto.setAwards( customUserBoughtAwardListToUserBoughtAwardDtoList( user.getAwards() ) );
 
         return userDto;
     }
@@ -131,9 +132,37 @@ public class UserMapperImpl implements UserMapper {
 
         AwardDto awardDto = new AwardDto();
 
+        awardDto.setId( award.getId() );
         awardDto.setName( award.getName() );
         awardDto.setCost( award.getCost() );
 
         return awardDto;
+    }
+
+    protected UserBoughtAwardDto customUserBoughtAwardToUserBoughtAwardDto(CustomUserBoughtAward customUserBoughtAward) {
+        if ( customUserBoughtAward == null ) {
+            return null;
+        }
+
+        UserBoughtAwardDto userBoughtAwardDto = new UserBoughtAwardDto();
+
+        userBoughtAwardDto.setId( customUserBoughtAward.getId() );
+        userBoughtAwardDto.setAward( awardToAwardDto( customUserBoughtAward.getAward() ) );
+        userBoughtAwardDto.setReceived( customUserBoughtAward.isReceived() );
+
+        return userBoughtAwardDto;
+    }
+
+    protected List<UserBoughtAwardDto> customUserBoughtAwardListToUserBoughtAwardDtoList(List<CustomUserBoughtAward> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        List<UserBoughtAwardDto> list1 = new ArrayList<UserBoughtAwardDto>( list.size() );
+        for ( CustomUserBoughtAward customUserBoughtAward : list ) {
+            list1.add( customUserBoughtAwardToUserBoughtAwardDto( customUserBoughtAward ) );
+        }
+
+        return list1;
     }
 }

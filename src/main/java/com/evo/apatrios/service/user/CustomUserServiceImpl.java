@@ -14,6 +14,7 @@ import com.querydsl.core.types.Predicate;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -77,6 +78,11 @@ public class CustomUserServiceImpl implements CustomUserService {
     @Override
     public void deleteById(@NonNull UUID id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public CustomUser findByEmail(@NonNull String email) {
+        return repository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User is not found"));
     }
 
     private Predicate buildPredicate(SearchUserArgument argument) {

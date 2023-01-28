@@ -21,4 +21,6 @@ public interface CustomUserService {
     CustomUser update(@NonNull UpdateUserArgument argument, @NonNull UUID id);
 
     void deleteById(@NonNull UUID id);
+
+    CustomUser findByEmail(@NonNull String email);
 }

@@ -7,7 +7,7 @@ import com.evo.apatrios.controller.user.dto.output.UserBuyAwardDto;
 import com.evo.apatrios.controller.user.dto.output.UserDto;
 import com.evo.apatrios.controller.user.dto.output.UserListDto;
 import com.evo.apatrios.model.CustomUser;
-import com.evo.apatrios.model.UserBuyAward;
+import com.evo.apatrios.action.buyaward.UserBuyAward;
 import com.evo.apatrios.service.user.argument.SearchUserArgument;
 import com.evo.apatrios.service.user.argument.UpdateUserArgument;
 import org.mapstruct.Mapper;
