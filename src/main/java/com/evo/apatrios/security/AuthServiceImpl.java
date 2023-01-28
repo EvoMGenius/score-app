@@ -38,26 +38,29 @@ public class AuthServiceImpl implements AuthService{
 
     @Override
     public AuthResponse register(@NonNull RegisterRequest request) {
-        var user = CustomUser.builder()
-                             .fullName(request.getFullName())
-                             .email(request.getEmail())
-                             .password(passwordEncoder.encode(request.getPassword()))
-                             .role(Role.USER)
-                             .build();
-        repository.save(user);
-        var jwtToken = jwtService.generateToken(user);
-        return AuthResponse.builder()
-                           .token(jwtToken)
-                           .build();
+//        var user = CustomUser.builder()
+//                             .fullName(request.getFullName())
+//                             .email(request.getEmail())
+//                             .password(passwordEncoder.encode(request.getPassword()))
+//                             .role(Role.USER)
+//                             .build();
+//        repository.save(user);
+//        var jwtToken = jwtService.generateToken(user);
+//        return AuthResponse.builder()
+//                           .token(jwtToken)
+//                           .build();
+        return null;
     }
 
     @Override
     public AuthResponse authenticate(@NonNull AuthRequest request) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
-        var user = repository.findByEmail(request.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User is not found"));
-
-        var jwtToken = jwtService.generateToken(user);
-        return AuthResponse.builder()
-                           .token(jwtToken)
-                           .build();    }
+//        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
+//        var user = repository.findByEmail(request.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User is not found"));
+//
+//        var jwtToken = jwtService.generateToken(user);
+//        return AuthResponse.builder()
+//                           .token(jwtToken)
+//                           .build();
+        return null;
+    }
 }
