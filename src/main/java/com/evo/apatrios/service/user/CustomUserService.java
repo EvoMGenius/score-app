@@ -22,4 +22,5 @@ public interface CustomUserService {
 
     void deleteById(@NonNull UUID id);
 
+    CustomUser findByEmail(@NonNull String email);
 }

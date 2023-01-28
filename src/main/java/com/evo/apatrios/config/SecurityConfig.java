@@ -1,5 +1,6 @@
 package com.evo.apatrios.config;
 
+import com.evo.apatrios.model.Role;
 import com.evo.apatrios.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +28,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .antMatchers("/api/v1/auth/**")
                 .permitAll()
+                .antMatchers("api/v1/internal/**")
+                .hasAnyAuthority(Role.ADMIN.name())
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement()

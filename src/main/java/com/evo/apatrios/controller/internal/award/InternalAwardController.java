@@ -7,6 +7,7 @@ import com.evo.apatrios.service.award.AwardService;
 import com.evo.apatrios.service.award.argument.CreateAwardArgument;
 import com.evo.apatrios.service.award.argument.UpdateAwardArgument;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;

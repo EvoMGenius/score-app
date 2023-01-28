@@ -6,6 +6,8 @@ import com.evo.apatrios.controller.user.dto.output.UserDto;
 import com.evo.apatrios.service.user.CustomUserService;
 import com.evo.apatrios.service.user.argument.UpdateUserArgument;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;

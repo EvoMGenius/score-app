@@ -43,11 +43,11 @@ C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo
 C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo\apatrios\service\award\AwardService.java
 C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo\apatrios\controller\user\dto\input\SearchUserDto.java
 C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo\apatrios\controller\internal\user\dto\UpdateUserDto.java
-C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo\apatrios\service\details\CustomUserDetailService.java
 C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo\apatrios\service\user\award\UserAwardServiceImpl.java
 C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo\apatrios\controller\award\dto\output\AwardDto.java
 C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo\apatrios\model\Role.java
 C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo\apatrios\service\user\award\argument\UpdateUserAwardArgument.java
+C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo\apatrios\service\details\CustomUserDetailsService.java
 C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo\apatrios\controller\user\dto\output\UserListDto.java
 C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo\apatrios\service\user\argument\SearchUserArgument.java
 C:\Users\Apatrios\IdeaProjects\EVO club\scoreApp\scope-app\src\main\java\com\evo\apatrios\repository\UserAwardRepository.java

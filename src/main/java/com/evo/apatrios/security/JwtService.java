@@ -26,6 +26,7 @@ public class JwtService {
     }
 
     public String generateToken(UserDetails userDetails) {
+        System.out.println(userDetails.getAuthorities());
         return generateToken(new HashMap<>(), userDetails);
     }
 

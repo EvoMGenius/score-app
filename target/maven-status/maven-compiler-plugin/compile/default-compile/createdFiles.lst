@@ -10,13 +10,14 @@ com\evo\apatrios\action\buyaward\UserByAwardActionArgument.class
 com\evo\apatrios\service\user\award\argument\UpdateUserAwardArgument.class
 com\evo\apatrios\controller\user\mapper\UserMapperImpl.class
 com\evo\apatrios\controller\award\dto\input\SearchAwardDto.class
+com\evo\apatrios\controller\auth\dto\RegisterRequest$RegisterRequestBuilder.class
 com\evo\apatrios\model\CustomUser.class
 com\evo\apatrios\service\user\award\argument\CreateUserAwardArgument$CreateUserAwardArgumentBuilder.class
 com\evo\apatrios\service\award\argument\SearchAwardArgument.class
 com\evo\apatrios\service\award\argument\CreateAwardArgument$CreateAwardArgumentBuilder.class
+com\evo\apatrios\service\details\CustomUserDetailsService.class
 com\evo\apatrios\config\AppConfig.class
 com\evo\apatrios\service\award\argument\SearchAwardArgument$SearchAwardArgumentBuilder.class
-com\evo\apatrios\service\details\CustomUserDetailService.class
 com\evo\apatrios\security\JwtAuthenticationFilter.class
 com\evo\apatrios\model\Award.class
 com\evo\apatrios\controller\auth\AuthController.class
@@ -47,6 +48,8 @@ com\evo\apatrios\service\award\argument\CreateAwardArgument.class
 com\evo\apatrios\controller\internal\award\dto\CreateAwardDto.class
 com\evo\apatrios\exception\AwardNotFoundException.class
 com\evo\apatrios\action\receive\UserAwardReceiveAction.class
+com\evo\apatrios\controller\auth\dto\AuthResponse$AuthResponseBuilder.class
+com\evo\apatrios\controller\auth\dto\AuthRequest$AuthRequestBuilder.class
 com\evo\apatrios\controller\user\dto\output\UserListDto.class
 com\evo\apatrios\security\AuthServiceImpl.class
 com\evo\apatrios\service\user\award\UserAwardService.class

@@ -8,7 +8,7 @@ import lombok.NonNull;
 import java.util.UUID;
 
 public interface AuthService {
-    UUID getAuthorizedUserId();
+    UUID getAuthorizedUserId() throws Exception;
 
     AuthResponse register(@NonNull RegisterRequest request);
 
