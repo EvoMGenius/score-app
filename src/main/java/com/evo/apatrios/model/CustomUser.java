@@ -25,19 +25,26 @@ public class CustomUser implements UserDetails {
     @Column(name = "user_id")
     private UUID id;
 
+    @Column(nullable = false)
     private String fullName;
 
+    @Column(nullable = false)
     private String faculty;
 
+    @Column(nullable = false)
     private String studyGroup;
 
+    @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false)
     private Long score;
 
+    @Column(nullable = false)
     private String password;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Role role;
 
     @OneToMany(fetch = FetchType.EAGER,

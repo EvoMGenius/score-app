@@ -8,6 +8,8 @@ import com.evo.apatrios.service.user.award.argument.UpdateUserAwardArgument;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -18,6 +20,7 @@ public class UserAwardServiceImpl implements UserAwardService {
     private final UserAwardRepository repository;
 
     @Override
+    @Transactional
     public CustomUserBoughtAward create(@NonNull CreateUserAwardArgument argument) {
         return repository.save(CustomUserBoughtAward.builder()
                                                     .award(argument.getAward())
@@ -27,6 +30,7 @@ public class UserAwardServiceImpl implements UserAwardService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public void update(@NonNull UpdateUserAwardArgument argument, @NonNull UUID id) {
         CustomUserBoughtAward existing = getExisting(id);
 

@@ -23,7 +23,7 @@ public class UserBuyAwardAction {
 
     private final UserAwardService userAwardService;
 
-    @Transactional(isolation = Isolation.SERIALIZABLE)
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public UserBuyAward buyAward(UserByAwardActionArgument argument) {
 
         CustomUser user = userService.getExisting(argument.getUserId());

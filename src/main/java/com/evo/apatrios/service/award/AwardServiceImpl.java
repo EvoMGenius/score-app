@@ -14,6 +14,8 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
@@ -27,17 +29,20 @@ public class AwardServiceImpl implements AwardService {
     private final QAward qAward = QAward.award;
 
     @Override
+    @Transactional(readOnly = true)
     public Award getExisting(@NonNull UUID awardId) {
         return repository.findById(awardId).orElseThrow(() -> new AwardNotFoundException("This award is not found", awardId));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Award> getList(SearchAwardArgument argument, Sort sort) {
         Predicate predicate = buildPredicate(argument);
         return Lists.newArrayList(repository.findAll(predicate, sort));
     }
 
     @Override
+    @Transactional
     public Award create(@NonNull CreateAwardArgument argument) {
         return Award.builder()
                     .name(argument.getName())
@@ -46,6 +51,7 @@ public class AwardServiceImpl implements AwardService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public Award update(@NonNull UpdateAwardArgument argument, @NonNull UUID id) {
         Award award = getExisting(id);
 

@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
@@ -59,7 +60,7 @@ public class CustomUserServiceImpl implements CustomUserService {
     }
 
     @Override
-    @Transactional
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
     public CustomUser update(@NonNull UpdateUserArgument argument, @NonNull UUID id) {
         CustomUser user = getExisting(id);
 
@@ -76,11 +77,13 @@ public class CustomUserServiceImpl implements CustomUserService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.SERIALIZABLE)
     public void deleteById(@NonNull UUID id) {
         repository.deleteById(id);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public CustomUser findByEmail(@NonNull String email) {
         return repository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User is not found"));
     }

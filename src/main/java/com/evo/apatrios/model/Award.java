@@ -18,7 +18,9 @@ public class Award {
     @Column(name = "award_id")
     private UUID id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private Long cost;
 }
