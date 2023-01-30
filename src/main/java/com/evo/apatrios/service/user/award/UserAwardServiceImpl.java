@@ -1,5 +1,6 @@
 package com.evo.apatrios.service.user.award;
 
+import com.evo.apatrios.exception.AwardNotFoundException;
 import com.evo.apatrios.model.CustomUserBoughtAward;
 import com.evo.apatrios.repository.UserAwardRepository;
 import com.evo.apatrios.service.user.award.argument.CreateUserAwardArgument;
@@ -26,7 +27,16 @@ public class UserAwardServiceImpl implements UserAwardService {
     }
 
     @Override
-    public void update(@NonNull UpdateUserAwardArgument argument, UUID id) {
- //todo
+    public void update(@NonNull UpdateUserAwardArgument argument, @NonNull UUID id) {
+        CustomUserBoughtAward existing = getExisting(id);
+
+        existing.setReceived(argument.isReceived());
+        existing.setAward(argument.getAward());
+
+        repository.save(existing);
+    }
+
+    private CustomUserBoughtAward getExisting(UUID id) {
+        return repository.findById(id).orElseThrow(() -> new AwardNotFoundException("This UserAward is not found", id));
     }
 }

@@ -28,7 +28,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .antMatchers("/api/v1/auth/**")
                 .permitAll()
-                .antMatchers("api/v1/internal/**")
+                .antMatchers("/api/v1/internal/**")
                 .hasAnyAuthority(Role.ADMIN.name())
                 .anyRequest().authenticated()
                 .and()
