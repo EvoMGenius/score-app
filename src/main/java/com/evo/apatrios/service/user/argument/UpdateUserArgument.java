@@ -1,6 +1,5 @@
 package com.evo.apatrios.service.user.argument;
 
-import com.evo.apatrios.model.Role;
 import com.evo.apatrios.model.CustomUserBoughtAward;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,10 +21,6 @@ public class UpdateUserArgument {
     String email;
 
     Long score;
-
-    String password;
-
-    Role role;
 
     List<CustomUserBoughtAward> awards;
 }

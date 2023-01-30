@@ -68,9 +68,9 @@ public class CustomUserServiceImpl implements CustomUserService {
         user.setStudyGroup(argument.getStudyGroup());
         user.setEmail(argument.getEmail());
         user.setScore(argument.getScore());
-        user.setPassword(argument.getPassword());
-        user.setRole(argument.getRole());
-        user.setAwards(argument.getAwards());
+        if(!(argument.getAwards()==null)){
+            user.setAwards(argument.getAwards());
+        }
 
         return repository.save(user);
     }

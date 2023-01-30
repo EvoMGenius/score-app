@@ -50,8 +50,6 @@ public class UserBuyAwardAction {
                                                     .faculty(user.getFaculty())
                                                     .studyGroup(user.getStudyGroup())
                                                     .email(user.getEmail())
-                                                    .password(user.getPassword())
-                                                    .role(user.getRole())
                                                     .awards(user.getAwards())
                                                     .score(user.getScore())
                                                     .build(), user.getId());
