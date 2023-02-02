@@ -69,7 +69,7 @@ public class CustomUserServiceImpl implements CustomUserService {
         user.setStudyGroup(argument.getStudyGroup());
         user.setEmail(argument.getEmail());
         user.setScore(argument.getScore());
-        if(!(argument.getAwards()==null)){
+        if (!(argument.getAwards() == null)) {
             user.setAwards(argument.getAwards());
         }
 
@@ -86,6 +86,18 @@ public class CustomUserServiceImpl implements CustomUserService {
     @Transactional(readOnly = true)
     public CustomUser findByEmail(@NonNull String email) {
         return repository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User is not found"));
+    }
+
+    @Override
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    public CustomUser updateScore(@NonNull UUID id, @NonNull Long additionalScore) {
+        CustomUser user = getExisting(id);
+
+        Long score = user.getScore();
+
+        user.setScore(score + additionalScore);
+
+        return repository.save(user);
     }
 
     private Predicate buildPredicate(SearchUserArgument argument) {

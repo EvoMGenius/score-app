@@ -23,4 +23,6 @@ public interface CustomUserService {
     void deleteById(@NonNull UUID id);
 
     CustomUser findByEmail(@NonNull String email);
+
+    CustomUser updateScore(@NonNull UUID id, @NonNull Long additionalScore);
 }

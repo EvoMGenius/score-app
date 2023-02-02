@@ -30,6 +30,11 @@ public class InternalUserController {
         return USER_MAPPER.toDto(userService.update(argument, id));
     }
 
+    @PutMapping("update/score/{id}/{additionalScore}")
+    public UserDto updateScore(@PathVariable UUID id, @PathVariable Long additionalScore){
+        return USER_MAPPER.toDto(userService.updateScore(id, additionalScore));
+    }
+
     @GetMapping("{userId}/received/{userAwardId}")
     public void received(@PathVariable UUID userId, @PathVariable UUID userAwardId){
         receiveAction.receive(userId, userAwardId);

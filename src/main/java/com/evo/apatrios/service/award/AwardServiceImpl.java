@@ -44,10 +44,10 @@ public class AwardServiceImpl implements AwardService {
     @Override
     @Transactional
     public Award create(@NonNull CreateAwardArgument argument) {
-        return Award.builder()
-                    .name(argument.getName())
-                    .cost(argument.getCost())
-                    .build();
+        return repository.save(Award.builder()
+                                    .name(argument.getName())
+                                    .cost(argument.getCost())
+                                    .build());
     }
 
     @Override

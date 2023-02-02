@@ -190,7 +190,7 @@
                 </executions>
                 <configuration>
                     <repository>apatrios/score-service</repository>
-                    <tag>0.0.1</tag>
+                    <tag>0.0.2</tag>
                     <buildArgs>
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
