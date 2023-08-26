@@ -1,8 +1,8 @@
 package com.evo.apatrios.action;
 
-import com.evo.apatrios.controller.auth.dto.AuthRequest;
-import com.evo.apatrios.controller.auth.dto.AuthResponse;
-import com.evo.apatrios.controller.auth.dto.RegisterRequest;
+import com.evo.apatrios.api.auth.dto.AuthRequest;
+import com.evo.apatrios.api.auth.dto.AuthResponse;
+import com.evo.apatrios.api.auth.dto.RegisterRequest;
 import com.evo.apatrios.service.user.CustomUserService;
 import com.evo.apatrios.service.user.argument.CreateUserArgument;
 import lombok.AccessLevel;

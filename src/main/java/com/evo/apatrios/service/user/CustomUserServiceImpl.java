@@ -57,7 +57,8 @@ public class CustomUserServiceImpl implements CustomUserService {
                                          .role(Role.USER)
                                          .score(0L)
                                          .password(argument.getPassword())
-                                         .awards(new ArrayList<>()).build());
+                                         .awards(new ArrayList<>())
+                                         .build());
     }
 
     @Override
