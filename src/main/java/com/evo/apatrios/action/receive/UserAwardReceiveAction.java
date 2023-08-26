@@ -30,7 +30,7 @@ public class UserAwardReceiveAction {
     }
 
     @Transactional(isolation = Isolation.REPEATABLE_READ)
-    public void receive(UUID userId, UUID userAwardId) {
+    public void execute(UUID userId, UUID userAwardId) {
         CustomUser user = userService.getExisting(userId);
 
         CustomUserBoughtAward award = user.getAwards().stream()

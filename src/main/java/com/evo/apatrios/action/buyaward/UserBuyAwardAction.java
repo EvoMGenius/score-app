@@ -34,7 +34,7 @@ public class UserBuyAwardAction {
     }
 
     @Transactional(isolation = Isolation.REPEATABLE_READ)
-    public UserBuyAward buyAward(UserByAwardActionArgument argument) {
+    public UserBuyAward execute(UserByAwardActionArgument argument) {
 
         CustomUser user = userService.getExisting(argument.getUserId());
         Award award = awardService.getExisting(argument.getAwardId());

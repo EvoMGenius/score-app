@@ -1,7 +1,7 @@
 package com.evo.apatrios.action;
 
-import com.evo.apatrios.controller.auth.dto.AuthRequest;
-import com.evo.apatrios.controller.auth.dto.AuthResponse;
+import com.evo.apatrios.api.auth.dto.AuthRequest;
+import com.evo.apatrios.api.auth.dto.AuthResponse;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
