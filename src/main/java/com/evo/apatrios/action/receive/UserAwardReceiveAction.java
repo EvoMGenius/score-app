@@ -6,7 +6,9 @@ import com.evo.apatrios.model.CustomUserBoughtAward;
 import com.evo.apatrios.service.user.CustomUserService;
 import com.evo.apatrios.service.user.award.UserAwardService;
 import com.evo.apatrios.service.user.award.argument.UpdateUserAwardArgument;
-import lombok.RequiredArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,12 +16,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.UUID;
 
 @Component
-@RequiredArgsConstructor
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class UserAwardReceiveAction {
 
-    private final CustomUserService userService;
+    CustomUserService userService;
 
-    private final UserAwardService userAwardService;
+    UserAwardService userAwardService;
+
+    public UserAwardReceiveAction(@Qualifier("customUserServiceImpl") CustomUserService userService,
+                                  UserAwardService userAwardService) {
+        this.userService = userService;
+        this.userAwardService = userAwardService;
+    }
 
     @Transactional(isolation = Isolation.REPEATABLE_READ)
     public void receive(UUID userId, UUID userAwardId) {

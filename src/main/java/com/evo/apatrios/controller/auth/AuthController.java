@@ -1,10 +1,10 @@
 package com.evo.apatrios.controller.auth;
 
-
+import com.evo.apatrios.action.AuthorizationUserAction;
+import com.evo.apatrios.action.RegistrationUserAction;
 import com.evo.apatrios.controller.auth.dto.AuthRequest;
 import com.evo.apatrios.controller.auth.dto.AuthResponse;
 import com.evo.apatrios.controller.auth.dto.RegisterRequest;
-import com.evo.apatrios.security.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,15 +17,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/auth")
 public class AuthController {
 
-    private final AuthService service;
+    private final RegistrationUserAction registrationUserAction;
+
+    private final AuthorizationUserAction authorizationUserAction;
 
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) {
-        return ResponseEntity.ok(service.register(request));
+        return ResponseEntity.ok(registrationUserAction.execute(request));
     }
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> authenticate(@RequestBody AuthRequest request) {
-        return ResponseEntity.ok(service.authenticate(request));
+        return ResponseEntity.ok(authorizationUserAction.execute(request));
     }
 }

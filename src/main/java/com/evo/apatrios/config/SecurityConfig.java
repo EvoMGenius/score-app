@@ -1,7 +1,6 @@
 package com.evo.apatrios.config;
 
 import com.evo.apatrios.model.Role;
-import com.evo.apatrios.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import ru.themikhailz.security.JwtAuthenticationFilter;
 
 @EnableWebSecurity
 @Configuration

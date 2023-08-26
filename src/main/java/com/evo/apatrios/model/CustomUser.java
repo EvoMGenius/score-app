@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import ru.themikhailz.security.CustomUserDetailsImpl;
 
 import javax.persistence.*;
 import java.util.Arrays;
@@ -50,6 +51,10 @@ public class CustomUser implements UserDetails {
     @OneToMany(fetch = FetchType.EAGER,
                cascade = CascadeType.ALL)
     private List<CustomUserBoughtAward> awards;
+
+    public static CustomUserDetailsImpl getUserDetails(CustomUser byEmail) {
+        return CustomUserDetailsImpl.builder().build();
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

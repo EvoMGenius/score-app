@@ -8,20 +8,30 @@ import com.evo.apatrios.service.user.CustomUserService;
 import com.evo.apatrios.service.user.argument.UpdateUserArgument;
 import com.evo.apatrios.service.user.award.UserAwardService;
 import com.evo.apatrios.service.user.award.argument.CreateUserAwardArgument;
-import lombok.RequiredArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-@RequiredArgsConstructor
 @Component
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class UserBuyAwardAction {
 
-    private final CustomUserService userService;
+    CustomUserService userService;
 
-    private final AwardService awardService;
+    AwardService awardService;
 
-    private final UserAwardService userAwardService;
+    UserAwardService userAwardService;
+
+    public UserBuyAwardAction(@Qualifier("customUserServiceImpl") CustomUserService userService,
+                              AwardService awardService,
+                              UserAwardService userAwardService) {
+        this.userService = userService;
+        this.awardService = awardService;
+        this.userAwardService = userAwardService;
+    }
 
     @Transactional(isolation = Isolation.REPEATABLE_READ)
     public UserBuyAward buyAward(UserByAwardActionArgument argument) {

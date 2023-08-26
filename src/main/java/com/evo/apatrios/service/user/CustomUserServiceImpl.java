@@ -14,6 +14,7 @@ import com.querydsl.core.types.Predicate;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -107,5 +108,10 @@ public class CustomUserServiceImpl implements CustomUserService {
                           .add(argument.getFaculty(), qUser.faculty::containsIgnoreCase)
                           .add(argument.getStudyGroup(), qUser.studyGroup::containsIgnoreCase)
                           .buildAnd();
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return CustomUser.getUserDetails(findByEmail(username));
     }
 }

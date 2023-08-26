@@ -1,11 +1,11 @@
 package com.evo.apatrios.controller.user.mapper;
 
 import com.evo.apatrios.action.buyaward.UserByAwardActionArgument;
-import com.evo.apatrios.controller.internal.user.dto.UpdateUserDto;
-import com.evo.apatrios.controller.user.dto.input.SearchUserDto;
-import com.evo.apatrios.controller.user.dto.output.UserBuyAwardDto;
-import com.evo.apatrios.controller.user.dto.output.UserDto;
-import com.evo.apatrios.controller.user.dto.output.UserListDto;
+import com.evo.apatrios.controller.user.internal.dto.UpdateUserDto;
+import com.evo.apatrios.controller.user.external.dto.input.SearchUserDto;
+import com.evo.apatrios.controller.user.external.dto.output.UserBuyAwardDto;
+import com.evo.apatrios.controller.user.external.dto.output.UserDto;
+import com.evo.apatrios.controller.user.external.dto.output.UserListDto;
 import com.evo.apatrios.model.CustomUser;
 import com.evo.apatrios.action.buyaward.UserBuyAward;
 import com.evo.apatrios.service.user.argument.SearchUserArgument;
