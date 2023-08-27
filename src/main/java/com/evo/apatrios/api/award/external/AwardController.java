@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 import static com.evo.apatrios.api.award.mapper.AwardMapper.AWARD_MAPPER;
 
-@RequestMapping("api/v1/awards")
+@RequestMapping("api/v1/award")
 @RestController
 @RequiredArgsConstructor
 public class AwardController {

@@ -6,12 +6,13 @@ import com.evo.apatrios.api.auth.dto.RegisterRequest;
 import com.evo.apatrios.service.user.CustomUserService;
 import com.evo.apatrios.service.user.argument.CreateUserArgument;
 import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class RegistrationUserAction {
 
@@ -20,14 +21,6 @@ public class RegistrationUserAction {
     CustomUserService userService;
 
     PasswordEncoder passwordEncoder;
-
-    public RegistrationUserAction(AuthorizationUserAction authorizationUserAction,
-                                  @Qualifier("customUserServiceImpl") CustomUserService userService,
-                                  PasswordEncoder passwordEncoder) {
-        this.authorizationUserAction = authorizationUserAction;
-        this.userService = userService;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     public AuthResponse execute(RegisterRequest request) {
         userService.create(CreateUserArgument.builder()

@@ -1,0 +1,14 @@
+{
+  "custom_user": [
+    {
+      "user_id": "00000000-0000-0000-0000-000000000000",
+      "full_name": "Чайковский Петр Ильич",
+      "faculty": "Факультет писателей",
+      "study_group": "Чтец боец",
+      "email": "culturolog@mail.ru",
+      "score": 173,
+      "password": "password",
+      "role": "USER"
+    }
+  ]
+}

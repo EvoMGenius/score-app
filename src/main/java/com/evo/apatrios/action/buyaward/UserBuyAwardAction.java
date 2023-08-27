@@ -9,13 +9,14 @@ import com.evo.apatrios.service.user.argument.UpdateUserArgument;
 import com.evo.apatrios.service.user.award.UserAwardService;
 import com.evo.apatrios.service.user.award.argument.CreateUserAwardArgument;
 import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
+@RequiredArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class UserBuyAwardAction {
 
@@ -24,14 +25,6 @@ public class UserBuyAwardAction {
     AwardService awardService;
 
     UserAwardService userAwardService;
-
-    public UserBuyAwardAction(@Qualifier("customUserServiceImpl") CustomUserService userService,
-                              AwardService awardService,
-                              UserAwardService userAwardService) {
-        this.userService = userService;
-        this.awardService = awardService;
-        this.userAwardService = userAwardService;
-    }
 
     @Transactional(isolation = Isolation.REPEATABLE_READ)
     public UserBuyAward execute(UserByAwardActionArgument argument) {

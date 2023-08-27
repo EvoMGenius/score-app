@@ -6,12 +6,11 @@ import com.evo.apatrios.service.user.argument.SearchUserArgument;
 import com.evo.apatrios.service.user.argument.UpdateUserArgument;
 import lombok.NonNull;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 import java.util.UUID;
 
-public interface CustomUserService extends UserDetailsService {
+public interface CustomUserService {
 
     CustomUser getExisting(@NonNull UUID id);
 

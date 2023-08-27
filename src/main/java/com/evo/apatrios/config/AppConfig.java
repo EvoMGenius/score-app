@@ -1,7 +1,6 @@
 package com.evo.apatrios.config;
 
 import com.evo.apatrios.repository.CustomUserRepository;
-import com.evo.apatrios.service.user.CustomUserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,14 +18,9 @@ public class AppConfig {
     private final CustomUserRepository repository;
 
     @Bean
-    public UserDetailsService userDetailsService() { //можно заменить кастомным UserDetailsService
-        return new CustomUserServiceImpl(repository);
-    }
-
-    @Bean
-    public AuthenticationProvider authenticationProvider(PasswordEncoder passwordEncoder) {
+    public AuthenticationProvider authenticationProvider(PasswordEncoder passwordEncoder, UserDetailsService userDetailsService) {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService());
+        authProvider.setUserDetailsService(userDetailsService);
         authProvider.setPasswordEncoder(passwordEncoder);
         return authProvider;
     }
