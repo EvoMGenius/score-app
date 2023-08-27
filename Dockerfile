@@ -1,4 +1,4 @@
-FROM openjdk:11-oraclelinux8
+FROM openjdk:17-oraclelinux8
 
 ARG JAR_FILE
 
