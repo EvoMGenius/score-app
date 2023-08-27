@@ -1,0 +1,44 @@
+{
+  "custom_user": [
+    {
+      "user_id": "00000000-0000-0000-0000-000000000000",
+      "full_name": "Чайковский Петр Ильич",
+      "faculty": "Факультет писателей",
+      "study_group": "Чтец боец",
+      "email": "culturolog@mail.ru",
+      "score": 123,
+      "password": "password",
+      "role": "USER"
+    },
+    {
+      "user_id": "00000000-0000-0000-0000-000000000001",
+      "full_name": "Дусмухамедов Мухамед Мухамедович",
+      "faculty": "Факультет борцов",
+      "study_group": "Боец кидец",
+      "email": "bedro-delay@mail.ru",
+      "score": 777,
+      "password": "password",
+      "role": "USER"
+    },
+    {
+      "user_id": "00000000-0000-0000-0000-000000000002",
+      "full_name": "Невский Александр Великович",
+      "faculty": "Факультет борцов",
+      "study_group": "Чтец боец",
+      "email": "pleasedo@mail.ru",
+      "score": 1221,
+      "password": "password",
+      "role": "USER"
+    },
+    {
+      "user_id": "00000000-0000-0000-0000-000000000003",
+      "full_name": "Фамилия Имя Отчество",
+      "faculty": "Факультет тестеров",
+      "study_group": "тест",
+      "email": "test@test.test",
+      "score": 0,
+      "password": "password",
+      "role": "USER"
+    }
+  ]
+}

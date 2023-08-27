@@ -12,9 +12,9 @@ import com.evo.apatrios.service.user.CustomUserService;
 import com.evo.apatrios.service.user.argument.SearchUserArgument;
 import com.evo.apatrios.service.utils.FileQrCodeGenerator;
 import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.SortDefault;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +29,8 @@ import java.util.stream.Collectors;
 import static com.evo.apatrios.api.user.mapper.UserMapper.USER_MAPPER;
 
 @RestController
-@RequestMapping("api/v1/users")
+@RequestMapping("api/v1/user")
+@RequiredArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class CustomUserController {
 
@@ -38,14 +39,6 @@ public class CustomUserController {
     AuthService authService;
 
     UserBuyAwardAction buyAwardAction;
-
-    public CustomUserController(@Qualifier("customUserServiceImpl") CustomUserService userService,
-                                AuthService authService,
-                                UserBuyAwardAction buyAwardAction) {
-        this.userService = userService;
-        this.authService = authService;
-        this.buyAwardAction = buyAwardAction;
-    }
 
     @GetMapping("list")
     public List<UserListDto> getList(SearchUserDto dto,

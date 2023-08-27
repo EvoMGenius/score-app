@@ -110,9 +110,4 @@ public class CustomUserServiceImpl implements CustomUserService {
                           .add(argument.getStudyGroup(), qUser.studyGroup::containsIgnoreCase)
                           .buildAnd();
     }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return CustomUser.getUserDetails(findByEmail(username));
-    }
 }

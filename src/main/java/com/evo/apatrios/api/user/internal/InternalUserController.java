@@ -6,8 +6,8 @@ import com.evo.apatrios.api.user.internal.dto.UpdateUserDto;
 import com.evo.apatrios.service.user.CustomUserService;
 import com.evo.apatrios.service.user.argument.UpdateUserArgument;
 import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -16,18 +16,13 @@ import static com.evo.apatrios.api.user.mapper.UserMapper.USER_MAPPER;
 
 @RestController
 @RequestMapping("api/v1/internal/user")
+@RequiredArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class InternalUserController {
 
     CustomUserService userService;
 
     UserAwardReceiveAction receiveAction;
-
-    public InternalUserController(@Qualifier("customUserServiceImpl") CustomUserService userService,
-                                  UserAwardReceiveAction receiveAction) {
-        this.userService = userService;
-        this.receiveAction = receiveAction;
-    }
 
     @PutMapping("update/{id}")
     public UserDto update(@RequestBody UpdateUserDto dto, @PathVariable UUID id) {

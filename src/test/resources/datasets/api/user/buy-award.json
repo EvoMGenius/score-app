@@ -1,0 +1,23 @@
+{
+  "custom_user": [
+    {
+      "user_id": "00000000-0000-0000-0000-000000000000",
+      "full_name": "Чайковский Петр Ильич",
+      "faculty": "Факультет писателей",
+      "study_group": "Чтец боец",
+      "email": "culturolog@mail.ru",
+      "score": 123,
+      "password": "password",
+      "role": "USER"
+    }
+  ],
+  "award": [
+    {
+      "award_id": "00000000-0000-0000-0000-000000000000",
+      "name": "Какая-то не очень награда",
+      "cost": 23
+    }
+  ],
+  "custom_user_awards": [],
+  "custom_user_bought_award": []
+}

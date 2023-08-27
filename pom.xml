@@ -123,6 +123,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.jupiter-tools</groupId>
             <artifactId>spring-test-jpa</artifactId>
             <version>0.4</version>
